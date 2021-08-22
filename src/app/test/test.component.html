@@ -1,0 +1,10 @@
+<button (click)="createProfi()">Create</button>
+
+<ul *ngFor="let profi of profesionales">
+  <li> ID: {{ profi.id }}</li>
+  <li> Nombre: {{ profi.nombre }}</li>
+  <li> Edad: {{ profi.edad }}</li>
+  <li> Dirección: {{ profi.direccion }}</li>
+  <button (click)="updateProfi(profi)">Update</button>
+  <button (click)="deleteProfi(profi.id)">Delete</button>
+</ul>
