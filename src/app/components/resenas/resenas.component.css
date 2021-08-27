@@ -1,0 +1,24 @@
+.card {
+  width: 350px;
+  height: 150px;
+}
+
+.header-image {
+  background-color: grey;
+  background-size: cover;
+}
+
+.usuario{
+  font-weight: bold;
+}
+
+.profesional{
+  display:flex;
+  flex-direction: row;
+  gap:0.2em;
+  margin-bottom: 0.2em;
+}
+
+.profesional p:first-child{
+  font-weight: bold;
+}
