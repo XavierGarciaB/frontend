@@ -1,0 +1,22 @@
+<div class="container mt-2">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card" style="max-width: 100%;">
+        <img class="card-img-top perfil-img rounded" [src]="['assets/images/'+ profesional.id+'.jpg']" alt="Foto de Perfil">
+        <div class="card-body">
+          <h5 class="card-title">{{ profesional.nombre }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ profesional.edad }} años - {{ profesional.direccion }}</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h5 class="col-md-12 my-3">Reseñas: </h5>
+    <div class="col-md-12 mb-3 border-left border-primary" *ngFor="let resena of resenas">
+      <h6 class="card-title">{{ resena.usuario.nombre }} </h6>
+      <h6 class="card-subtitle mb-2 text-muted">{{ resena.fechaPublicacion }}</h6>
+      <p>{{ resena.comentario }}</p>
+    </div>
+  </div>
+</div>

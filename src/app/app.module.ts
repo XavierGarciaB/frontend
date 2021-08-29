@@ -27,6 +27,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { ProfesionalesComponent } from './components/profesionales/profesionales.component';
+import { ProfesionalDescriptionComponent } from './components/profesional-description/profesional-description.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ProfesionalesComponent } from './components/profesionales/profesionales
     AvisosComponent, 
     ResenasComponent,
     ResenasDialogComponent,
-    ProfesionalesComponent
+    ProfesionalesComponent,
+    ProfesionalDescriptionComponent
   ],
  
   imports: [

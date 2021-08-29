@@ -16,6 +16,10 @@ export class ProfesionalService {
     return this.httpClient.get<Profesional[]>("http://localhost/restapi/index.php/profesionales/list");
   }
 
+  get(id: number): Observable<Profesional> {
+    return this.httpClient.get<Profesional>(`http://localhost/restapi/index.php/profesionales/get/${id}`);
+  }
+
   create(profesional: Profesional): Observable<any> {
     return this.httpClient.post<any>("http://localhost/restapi/index.php/profesionales/create", profesional);
   }

@@ -16,6 +16,10 @@ export class ResenasService {
     return this.httpClient.get<Resena[]>("http://localhost/restapi/index.php/resenas/list");
   }
 
+  listByProfesional(id: number): Observable<Resena[]> {
+    return this.httpClient.get<Resena[]>(`http://localhost/restapi/index.php/resenas/list/${id}`);
+  }
+
   create(resena: Resena): Observable<any> {
     return this.httpClient.post<any>("http://localhost/restapi/index.php/resenas/create", resena);
   }

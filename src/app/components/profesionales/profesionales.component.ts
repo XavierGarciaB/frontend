@@ -14,8 +14,7 @@ export class ProfesionalesComponent implements OnInit {
 
   constructor(
     private profesionalService: ProfesionalService,
-    private horarioService: HorariosService,
-    private changeDetector: ChangeDetectorRef
+    private horarioService: HorariosService
   ) { }
 
   ngOnInit(): void {
@@ -40,7 +39,6 @@ export class ProfesionalesComponent implements OnInit {
   changeState(horario: Horario, profesional: Profesional): void {
     horario.disponible = !horario.disponible;
     this.horarioService.update(horario).subscribe(response => {
-      // console.log(response);
       this.fetchHorarios(profesional);
     });
   }
