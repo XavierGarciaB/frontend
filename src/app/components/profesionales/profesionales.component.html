@@ -1,0 +1,39 @@
+<div class="container" style="margin-top: 1rem;">
+  <div class="row" *ngFor="let profesional of profesionales">
+    <div class="col-md-12">
+      <div class="card" style="width: 50%;">
+        <!--img class="card-img-top" src="src/assets/images/man_1.jpg" alt="Foto de Perfil"-->
+        <div class="card-body">
+          <h5 class="card-title">{{ profesional.nombre }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ profesional.direccion }} - {{ profesional.edad }} años</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Ver Perfil</a>
+        </div>
+      </div>
+    </div>
+    <h6 class="col-md-12" style="margin-top: 0.5rem;">Horarios:</h6>
+    <div class="col-md-3" *ngFor="let horario of profesional.horarios">
+      <div *ngIf="horario.disponible === '1'">
+        <div class="card border-success mb-3 disponible" style="width: 100%;" (click)="changeState(horario, profesional)">
+          <div class="card-header">Disponible</div>
+          <div class="card-body text-success">
+            <h5 class="card-title">{{ horario.fecha }}</h5>
+            <p class="card-text">Hora Inicio: {{ horario.horaInicio }}</p>
+            <p class="card-text">Hora Fin: {{ horario.horaFin }}</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="horario.disponible === '0'">
+        <div class="card border-danger mb-3" style="width: 100%;">
+          <div class="card-header">Ocupado</div>
+          <div class="card-body text-danger">
+            <h5 class="card-title">{{ horario.fecha }}</h5>
+            <p class="card-text">Hora Inicio: {{ horario.horaInicio }}</p>
+            <p class="card-text">Hora Fin: {{ horario.horaFin }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="dotted col-md-12">
+  </div>
+</div>

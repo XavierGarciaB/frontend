@@ -26,6 +26,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { ProfesionalesComponent } from './components/profesionales/profesionales.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
     CitasComponent,
     AvisosComponent, 
     ResenasComponent,
-    ResenasDialogComponent
+    ResenasDialogComponent,
+    ProfesionalesComponent
   ],
  
   imports: [
