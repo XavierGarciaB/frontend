@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { TestComponent } from './test/test.component';
 import {HomeComponent} from './home/home.component';
-import { AvisosComponent } from './avisos/avisos.component';
-import { CitasComponent } from './citas/citas.component';
+import { AvisosComponent } from './components/avisos/avisos.component';
+import { CitasComponent } from './components/citas/citas.component';
+
 import { ResenasComponent } from './components/resenas/resenas.component';
 
 const routes: Routes = [
