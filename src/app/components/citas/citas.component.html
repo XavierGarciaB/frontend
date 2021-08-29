@@ -2,4 +2,29 @@
     <h1>
         Parte de citas y horarios
     </h1>
+    <h2>
+        Horarios disponibles
+    </h2>
+
+
+    
 </div>
+
+
+<mat-grid-list cols="3" rowHeight="12em">
+    <ng-container>
+      <div *ngFor="let horario of horarios" class="resenas">
+        <mat-grid-tile class="grid-elem">
+        <mat-card class="card">
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-subtitle class="usuario"><p>Profesional: {{horario.nombre}}</p></mat-card-subtitle>
+            <mat-card-subtitle class="profesional"><p>Hora Inicio: </p><p>{{horario.horaInicio}}</p></mat-card-subtitle>
+            <mat-card-subtitle><p>Hora Fin: {{horario.horaFin}}</p></mat-card-subtitle>
+            <mat-card-subtitle><p>Dirección: {{horario.direccion}} </p></mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </mat-grid-tile>
+      </div>
+  </ng-container>
+</mat-grid-list>
