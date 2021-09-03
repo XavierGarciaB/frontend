@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  usuario: {}
+  api_url: "http://localhost/restapi/index.php"
 };
 
 /*

@@ -1,7 +1,7 @@
 export interface Horario {
   id?: number;
   disponible: boolean;
-  fecha: string,
+  fecha: string;
   horaInicio: string;
   horaFin: string;
   profesionalId: number;

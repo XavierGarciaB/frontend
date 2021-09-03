@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Aviso } from 'src/app/interfaces/aviso';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,19 @@ export class AvisosService {
   ) { }
 
   list(): Observable<Aviso[]> {
-    return this.httpClient.get<Aviso[]>("http://localhost:8080/restapi/index.php/avisos/list");
+    return this.httpClient.get<Aviso[]>(`${environment.api_url}/avisos/list`);
   }
 
   create(aviso: Aviso): Observable<any> {
-    return this.httpClient.post<any>("http://localhost:8080/restapi/index.php/avisos/create", aviso);
+    return this.httpClient.post<any>(`${environment.api_url}/avisos/create`, aviso);
   }
 
   update(aviso: Aviso): Observable<any> {
-    return this.httpClient.patch<any>("http://localhost:8080/restapi/index.php/avisos/update",aviso);
+    return this.httpClient.patch<any>(`${environment.api_url}/avisos/update`,aviso);
   }
 
   delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(`http://localhost:8080/restapi/index.php/avisos/delete/${id}`);
+    return this.httpClient.delete<any>(`${environment.api_url}/avisos/delete/${id}`);
   }
 
 }
