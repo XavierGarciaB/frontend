@@ -7,6 +7,9 @@ import { CitasComponent } from './components/citas/citas.component';
 import { ResenasComponent } from './components/resenas/resenas.component';
 import { ProfesionalesComponent } from './components/profesionales/profesionales.component';
 import { ProfesionalDescriptionComponent } from './components/profesional-description/profesional-description.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/home', pathMatch: 'full'},
@@ -16,7 +19,10 @@ const routes: Routes = [
   {path: 'profesionales/:id', component: ProfesionalDescriptionComponent },
   {path: 'citas', component: CitasComponent },
   {path: 'avisos', component: AvisosComponent },
-  {path: 'resenas', component: ResenasComponent }
+  {path: 'resenas', component: ResenasComponent },
+  {path: 'perfil', component: PerfilComponent },
+  {path: 'auth/login', component: LoginComponent },
+  {path: 'auth/register', component: RegisterComponent }
   
 ]; // sets up routes constant where you define your routes
 

@@ -7,10 +7,15 @@ import { Usuario } from 'src/app/interfaces/usuarios';
   providedIn: 'root'
 })
 export class UsuariosService {
+  usuario: Usuario;
 
   constructor(
     private httpClient: HttpClient
   ) { }
+
+  validate(usuario: string, cedula: string): Observable<Usuario> {
+    return this.httpClient.get<Usuario>(`http://localhost/restapi/index.php/usuarios/validate/${usuario}/${cedula}`);
+  }
 
   list(): Observable<Usuario[]> {
     return this.httpClient.get<Usuario[]>("http://localhost/restapi/index.php/usuarios/list");
@@ -20,12 +25,12 @@ export class UsuariosService {
     return this.httpClient.get<Usuario>(`http://localhost/restapi/index.php/usuarios/get/${id}`);
   }
 
-  create(profesional: Usuario): Observable<any> {
-    return this.httpClient.post<any>("http://localhost/restapi/index.php/usuarios/create", profesional);
+  create(usuario: Usuario): Observable<any> {
+    return this.httpClient.post<any>("http://localhost/restapi/index.php/usuarios/create", usuario);
   }
 
-  update(profesional: Usuario): Observable<any> {
-    return this.httpClient.patch<any>("http://localhost/restapi/index.php/usuarios/update", profesional);
+  update(usuario: Usuario): Observable<any> {
+    return this.httpClient.patch<any>("http://localhost/restapi/index.php/usuarios/update", usuario);
   }
 
   delete(id: number): Observable<any> {

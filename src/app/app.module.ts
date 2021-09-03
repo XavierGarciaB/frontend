@@ -28,6 +28,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { ProfesionalesComponent } from './components/profesionales/profesionales.component';
 import { ProfesionalDescriptionComponent } from './components/profesional-description/profesional-description.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ProfesionalDescriptionComponent } from './components/profesional-descri
     ResenasComponent,
     ResenasDialogComponent,
     ProfesionalesComponent,
-    ProfesionalDescriptionComponent
+    ProfesionalDescriptionComponent,
+    LoginComponent,
+    RegisterComponent,
+    PerfilComponent
   ],
  
   imports: [
@@ -52,6 +58,7 @@ import { ProfesionalDescriptionComponent } from './components/profesional-descri
     MatCardModule,
     MatSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatGridListModule,
     MatDialogModule,
