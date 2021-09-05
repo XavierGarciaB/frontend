@@ -1,22 +1,23 @@
+
 <mat-grid-list cols="3" rowHeight="12em">
-    <ng-container>
-      <div *ngFor="let resena of resenas" class="resenas">
-        <mat-grid-tile class="grid-elem">
-        <mat-card class="card">
-          <mat-card-header>
-            <div mat-card-avatar class="header-image"></div>
-            <mat-card-subtitle class="usuario"><p>{{resena.userName}}</p></mat-card-subtitle>
-            <mat-card-subtitle class="profesional"><p>Profesional: </p><p>{{resena.profesionalName}}</p></mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p >
-              {{textoSuperiorALimite(resena.comentario)}}<button mat-button *ngIf="showMore" (click)="mostrarMas(resena)" class="moreText">Ver más</button>
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-      </div>
-  </ng-container>
+  <ng-container>
+    <div *ngFor="let resena of resenas" class="resenas">
+      <mat-grid-tile class="grid-elem">
+      <mat-card class="card">
+        <mat-card-header>
+          <div mat-card-avatar class="header-image"></div>
+          <mat-card-subtitle class="usuario"><p>{{resena.userName}}</p></mat-card-subtitle>
+          <mat-card-subtitle class="profesional"><p>Profesional: </p><p>{{resena.profesionalName}}</p></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p >
+            {{textoSuperiorALimite(resena.comentario)}}<button mat-button *ngIf="showMore" (click)="mostrarMas(resena)" class="moreText btn-primary">Ver más</button>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    </div>
+</ng-container>
 </mat-grid-list>
 
 

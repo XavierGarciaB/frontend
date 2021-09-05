@@ -22,3 +22,11 @@
 .profesional p:first-child{
   font-weight: bold;
 }
+
+.moreText{
+  padding:0.1em 0.2em;
+  margin-left: 0.5em;
+  margin-right: 0;
+
+}
+

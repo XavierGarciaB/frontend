@@ -17,6 +17,10 @@ export class HorariosService {
     return this.httpClient.get<Horario[]>(`${environment.api_url}/horarios/list/${profesionalId}`);
   }
 
+  get(horarioId: number): Observable<Horario> {
+    return this.httpClient.get<Horario>(`${environment.api_url}/horarios/get/${horarioId}`);
+  }
+  
   create(profesional: Horario): Observable<any> {
     return this.httpClient.post<any>(`${environment.api_url}/horarios/create`, profesional);
   }

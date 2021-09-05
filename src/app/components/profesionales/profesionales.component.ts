@@ -3,6 +3,9 @@ import { Horario } from 'src/app/interfaces/horario';
 import { Profesional } from 'src/app/interfaces/profesional';
 import { HorariosService } from 'src/app/services/horarios/horarios.service';
 import { ProfesionalService } from 'src/app/services/profesional/profesional.service';
+import { CitasService } from 'src/app/services/citas/cita.service';
+import Swal from 'sweetalert2';
+import { Cita } from 'src/app/interfaces/cita';
 
 @Component({
   selector: 'app-profesionales',
@@ -11,10 +14,12 @@ import { ProfesionalService } from 'src/app/services/profesional/profesional.ser
 })
 export class ProfesionalesComponent implements OnInit {
   profesionales: Profesional[] = [];
+  userId = 1
 
   constructor(
     private profesionalService: ProfesionalService,
-    private horarioService: HorariosService
+    private horarioService: HorariosService,
+    private citasService: CitasService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +39,32 @@ export class ProfesionalesComponent implements OnInit {
     this.horarioService.list(profesional.id).subscribe(horarios => {
       profesional.horarios = horarios;
     });
+  }
+
+  reservarCita(horario: Horario, profesional: Profesional){
+    Swal.fire({
+      title: 'Cita con '+profesional.nombre,
+      html:
+        '<p>¿Desea reserva la cita?</p>',
+      showDenyButton: true,
+      showConfirmButton: true,
+      showCloseButton: true,
+      denyButtonText: `No`,
+      confirmButtonText: `Sí`
+    }).then((result) => {
+      this.crearCita(this.userId,horario,profesional)
+    })
+  }
+
+  crearCita(userId,horario:Horario,profesional:Profesional){
+    let payload={
+      estado: "pendiente",
+      usuarios_id: userId,
+      horarios_id: horario.id
+    }
+    this.citasService.create(payload).subscribe(result=>{
+      this.changeState(horario,profesional)
+    })
   }
 
   changeState(horario: Horario, profesional: Profesional): void {

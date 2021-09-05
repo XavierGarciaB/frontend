@@ -14,7 +14,7 @@
     <h6 class="col-md-12" style="margin-top: 0.5rem;">Horarios:</h6>
     <div class="col-md-3" *ngFor="let horario of profesional.horarios">
       <div *ngIf="horario.disponible === '1'">
-        <div class="card border-success mb-3 disponible" style="width: 100%;" (click)="changeState(horario, profesional)">
+        <div class="card border-success mb-3 disponible" style="width: 100%;" (click)="reservarCita(horario, profesional)">
           <div class="card-header">Disponible</div>
           <div class="card-body text-success">
             <h5 class="card-title">{{ horario.fecha }}</h5>

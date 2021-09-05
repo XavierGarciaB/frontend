@@ -1,8 +1,11 @@
+import { Profesional } from "./profesional";
+
 export interface Horario {
   id?: number;
   disponible: boolean;
   fecha: string;
   horaInicio: string;
   horaFin: string;
-  profesionalId: number;
+  profesionales_id: string;
+  profesional?: Profesional
 }

@@ -12,16 +12,20 @@ export class CitasService {
   constructor(
     private httpClient: HttpClient
   ) { }
-
-  list(cita) {
-    return this.httpClient.get<Cita[]>(`${environment.api_url}/citas/list`,cita);
+   
+  list(userId): Observable<Cita[]> {
+    return this.httpClient.get<Cita[]>(`${environment.api_url}/citas/list/${userId}`);
   }
 
-  create(cita: Cita): Observable<any> {
+  getCitaById(id: number): Observable<Cita> {
+    return this.httpClient.get<Cita>(`${environment.api_url}/citas/get/${id}`);
+  }
+  
+  create(cita): Observable<any> {
     return this.httpClient.post<any>(`${environment.api_url}/citas/create`, cita);
   }
 
-  update(cita: Cita): Observable<any> {
+  update(cita): Observable<any> {
     return this.httpClient.patch<any>(`${environment.api_url}/citas/update`, cita);
   }
 

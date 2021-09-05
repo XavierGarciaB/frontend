@@ -16,7 +16,7 @@ export class ResenasService {
   list(): Observable<Resena[]> {
     return this.httpClient.get<Resena[]>(`${environment.api_url}/resenas/list`);
   }
-
+  
   listByProfesional(id: number): Observable<Resena[]> {
     return this.httpClient.get<Resena[]>(`${environment.api_url}/resenas/list/${id}`);
   }

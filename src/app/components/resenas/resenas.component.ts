@@ -5,6 +5,8 @@ import { ResenasService } from 'src/app/services/resenas/resena.service';
 import { Resena } from 'src/app/interfaces/resena';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA  } from '@angular/material/dialog';
 import { ResenasDialogComponent } from './resenasDialog.component';
+import { ProfesionalService } from 'src/app/services/profesional/profesional.service';
+import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
 @Component({
     selector: 'app-resenas',
@@ -18,6 +20,8 @@ export class ResenasComponent implements OnInit{
 
   constructor(    
     private resenasService: ResenasService,
+    private profesionalesService: ProfesionalService,
+    private usuariosService: UsuariosService,
     public dialog: MatDialog
 
   ) {}
@@ -26,15 +30,29 @@ export class ResenasComponent implements OnInit{
     return this.resenasService.list()
   }
 
-  setShowMore(value){
+  setResenaProfesional(resena:Resena): void{
+    this.profesionalesService.get(parseInt(resena.profesionales_id)).subscribe(profesional=>{
+      resena.profesional = profesional
+    })
+  }
+
+  setResenaUsuario(resena: Resena): void{
+    this.usuariosService.get(parseInt(resena.usuarios_id)).subscribe(usuario=>{
+      resena.usuario = usuario
+    })
+  
+  }
+
+  setShowMore(value): void{
     this.showMore = value;
   }
 
   mostrarMas(resena): void {
-    let dialogRef = this.dialog.open(ResenasDialogComponent, {
+    this.dialog.open(ResenasDialogComponent, {
       width: '800px',
       height: '250px',
-      data: { user: resena.userName, profesional: resena.profesionalName, comment: resena.comentario }
+      panelClass: 'my-dialog',
+      data: { user: resena.usuario?.nombre, profesional: resena.profesional?.nombre, comment: resena.comentario }
     });
 
   }
@@ -49,12 +67,16 @@ export class ResenasComponent implements OnInit{
     }
   }
 
-
-
-  ngOnInit() {
+  ngOnInit(){
     this.getResenas().subscribe(reviews=>{
       this.resenas = reviews;
+      this.resenas.forEach(element => {
+        this.setResenaProfesional(element)
+        this.setResenaUsuario(element)
+      });
     })
+
+
   }
 
 
