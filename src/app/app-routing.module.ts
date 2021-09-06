@@ -10,19 +10,26 @@ import { ProfesionalDescriptionComponent } from './components/profesional-descri
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 
 const routes: Routes = [
-  {path:'', redirectTo: '/home', pathMatch: 'full'},
-  {path:'home', component: HomeComponent},
-  {path: 'test', component: TestComponent },
-  {path: 'profesionales', component: ProfesionalesComponent },
-  {path: 'profesionales/:id', component: ProfesionalDescriptionComponent },
-  {path: 'citas', component: CitasComponent },
-  {path: 'avisos', component: AvisosComponent },
-  {path: 'resenas', component: ResenasComponent },
-  {path: 'perfil', component: PerfilComponent },
+  {
+    path: '',
+    component: AppLayoutComponent,
+    children: [
+      {path:'home', component: HomeComponent},
+      {path: 'test', component: TestComponent },
+      {path: 'profesionales', component: ProfesionalesComponent },
+      {path: 'profesionales/:id', component: ProfesionalDescriptionComponent },
+      {path: 'citas', component: CitasComponent },
+      {path: 'avisos', component: AvisosComponent },
+      {path: 'resenas', component: ResenasComponent },
+      {path: 'perfil', component: PerfilComponent },
+    ]
+  },
   {path: 'auth/login', component: LoginComponent },
-  {path: 'auth/register', component: RegisterComponent }
+  {path: 'auth/register', component: RegisterComponent },
+  {path:'', redirectTo: '/auth/login', pathMatch: 'full'},
   
 ]; // sets up routes constant where you define your routes
 

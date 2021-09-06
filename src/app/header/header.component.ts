@@ -8,10 +8,16 @@ import { Observable } from 'rxjs';
     styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit{
-    constructor(){}
+    constructor(
+        private router: Router
+    ){}
 
     ngOnInit(){
 
+    }
+
+    logout(): void {
+        this.router.navigate(['/auth', 'login']);
     }
 
 }
