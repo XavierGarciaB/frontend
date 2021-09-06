@@ -8,10 +8,15 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProfesionalService {
+  profesional: Profesional;
 
   constructor(
     private httpClient: HttpClient
   ) { }
+
+  validate(id: number, nombre: string): Observable<Profesional> {
+    return this.httpClient.get<Profesional>(`${environment.api_url}/profesionales/validate/${id}/${nombre}`);
+  }
 
   list(): Observable<Profesional[]> {
     return this.httpClient.get<Profesional[]>(`${environment.api_url}/profesionales/list`);

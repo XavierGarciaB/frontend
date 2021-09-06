@@ -1,11 +1,11 @@
-<div class="container" style="height: 90vh;">
+<div *ngIf="!isProfi" class="container" style="height: 90vh;">
   <div class="row h-100 justify-content-center">
     <div class="col-md-6 my-auto">
       <div class="card" style="width: 100%;">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-2 mt-3">
-              <h5>Log In</h5>
+            <div class="col-md-12 mt-3">
+              <h5 style="text-align: center;">Log In (Usuario)</h5>
             </div>
           </div>
           <div class="row justify-content-center">
@@ -40,6 +40,66 @@
             </div>
             <div class="col-md-2">
               <button type="button" class="btn btn-info" (click)="goToRegister()">Register</button>
+            </div>
+          </div>
+          <div class="row my-2 justify-content-center">
+            <div class="col-md-12">
+              <p class="font-weight-light profi-link" (click)="changeLogin()">¿Eres un profesional?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isProfi" class="container" style="height: 90vh;">
+  <div class="row h-100 justify-content-center">
+    <div class="col-md-6 my-auto">
+      <div class="card" style="width: 100%;">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-12 mt-3">
+              <h5 style="text-align: center;">Log In (Profesional)</h5>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <p>ID</p>
+            </div>
+            <div class="col-md-10">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="email">ID</span>
+                </div>
+                <input type="text" [formControl]="id" class="form-control" placeholder="Id" aria-label="id" aria-describedby="id">
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <p>Nombre</p>
+            </div>
+            <div class="col-md-10">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="cedula">N</span>
+                </div>
+                <input type="text" [formControl]="nombre" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="nombre">
+              </div>
+            </div>
+          </div>
+          <div class="row my-3 justify-content-center">
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-info" (click)="goToRegister()">Register</button>
+            </div>
+          </div>
+          <div class="row my-2 justify-content-center">
+            <div class="col-md-12">
+              <p class="font-weight-light profi-link" (click)="changeLogin()">¿Eres un usuario?</p>
             </div>
           </div>
         </div>

@@ -1,0 +1,8 @@
+.profi-link {
+  text-align: center;
+}
+
+.profi-link:hover {
+  cursor: pointer;
+  text-decoration-line: underline;
+}

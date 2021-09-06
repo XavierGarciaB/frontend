@@ -35,6 +35,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { NZ_I18N, es_ES} from 'ng-zorro-antd/i18n';
+import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 
 registerLocaleData(localeEs);
 
@@ -53,7 +54,8 @@ registerLocaleData(localeEs);
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
-    CalendarComponent
+    CalendarComponent,
+    AppLayoutComponent
   ],
  
   imports: [
