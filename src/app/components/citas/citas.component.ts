@@ -5,6 +5,7 @@ import { Cita } from 'src/app/interfaces/cita';
 import { ProfesionalService } from 'src/app/services/profesional/profesional.service';
 import { CalendarEvent } from 'angular-calendar';
 import { Constants } from 'src/app/constants';
+import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 const colors: any = Constants.colors
 
 @Component({
@@ -23,7 +24,8 @@ export class CitasComponent implements OnInit{
     constructor(
         private horariosService: HorariosService,
         private citasService: CitasService,
-        private profesionalesService:  ProfesionalService
+        private profesionalesService:  ProfesionalService,
+        private usuariosService: UsuariosService
         
     ){}
 
@@ -52,7 +54,6 @@ export class CitasComponent implements OnInit{
             id: cita.id,
             title: "Cita con "+cita.horario.profesional.nombre+"<br>Lugar: "+cita.horario.profesional.direccion,
             color: colors.yellow,
-            text: cita.horario.profesional.direccion,
             start: this.formatDate(cita.horario.fecha,cita.horario.horaInicio),
             end: this.formatDate(cita.horario.fecha,cita.horario.horaFin),
         }
@@ -70,8 +71,12 @@ export class CitasComponent implements OnInit{
         return new Date(fecha[0],fecha[1]-1,fecha[2],hora[0],hora[1],hora[2])
     }
 
+    setUserId(){
+        this.userId = this.usuariosService.usuario.id
+    }
+
     ngOnInit(): void{
-        this.userId = 1
+        this.setUserId()
         this.getCitas(this.userId)
     }
 

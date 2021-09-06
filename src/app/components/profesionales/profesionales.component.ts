@@ -5,7 +5,7 @@ import { HorariosService } from 'src/app/services/horarios/horarios.service';
 import { ProfesionalService } from 'src/app/services/profesional/profesional.service';
 import { CitasService } from 'src/app/services/citas/cita.service';
 import Swal from 'sweetalert2';
-import { Cita } from 'src/app/interfaces/cita';
+import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
 @Component({
   selector: 'app-profesionales',
@@ -14,15 +14,17 @@ import { Cita } from 'src/app/interfaces/cita';
 })
 export class ProfesionalesComponent implements OnInit {
   profesionales: Profesional[] = [];
-  userId = 1
+  public userId: Number;
 
   constructor(
     private profesionalService: ProfesionalService,
     private horarioService: HorariosService,
-    private citasService: CitasService
+    private citasService: CitasService,
+    private usuariosService: UsuariosService
   ) { }
 
   ngOnInit(): void {
+    this.setUserId()
     this.fetchProfesionales();
   }
 
@@ -73,5 +75,9 @@ export class ProfesionalesComponent implements OnInit {
       this.fetchHorarios(profesional);
     });
   }
+
+  setUserId(){
+    this.userId = this.usuariosService.usuario.id
+}
 
 }
