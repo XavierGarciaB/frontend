@@ -1,6 +1,11 @@
+mat-label{
+  margin: 3em;
+}
+
 .card {
   width: 350px;
-  height: 150px;
+  height: 180px;
+  padding: 1em;
 }
 
 .header-image {
@@ -24,9 +29,8 @@
 }
 
 .moreText{
-  padding:0.1em 0.2em;
+  padding:0.03em 0.2em;
   margin-left: 0.5em;
   margin-right: 0;
-
 }
 

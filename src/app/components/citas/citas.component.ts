@@ -1,5 +1,5 @@
 import { HorariosService } from 'src/app/services/horarios/horarios.service';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CitasService } from 'src/app/services/citas/cita.service';
 import { Cita } from 'src/app/interfaces/cita';
 import { ProfesionalService } from 'src/app/services/profesional/profesional.service';
@@ -9,7 +9,6 @@ const colors: any = Constants.colors
 
 @Component({
     selector: 'app-citas',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './citas.component.html',
     styleUrls: ['./citas.component.css'],
 

@@ -64,6 +64,7 @@ registerLocaleData(localeEs);
     MatIconModule,
     MatCardModule,
     MatSelectModule,
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
