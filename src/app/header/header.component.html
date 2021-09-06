@@ -15,10 +15,11 @@
           <a style="color: white;" class="nav-link element" routerLink="/test">Test
           </a>
         </li-->
-        <li class="nav-item">
+        <li *ngIf="!isProfi()" class="nav-item">
           <a style="color: white;" class="nav-link element" routerLink="/profesionales">Profesionales
           </a>
         </li>
+        <!-- INSERTAR ETIQUETA PARA PROFESIONAL -->
         <li class="nav-item">
           <a style="color: white;" class="nav-link element" routerLink="/citas" >Citas</a>
         </li>

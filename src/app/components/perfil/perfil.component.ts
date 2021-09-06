@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Profesional } from 'src/app/interfaces/profesional';
 import { Usuario } from 'src/app/interfaces/usuarios';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProfesionalService } from 'src/app/services/profesional/profesional.service';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
@@ -26,13 +27,10 @@ export class PerfilComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuariosService,
-    private profesionalService: ProfesionalService
+    private profesionalService: ProfesionalService,
+    private authService: AuthService
   ) {
-    if (this.usuarioService.usuario !== undefined) {
-      this.isProfi = false;
-    } else if (this.profesionalService.profesional !== undefined) {
-      this.isProfi = true;
-    }
+    this.isProfi = this.authService.isProfi();
   }
 
   ngOnInit(): void {
