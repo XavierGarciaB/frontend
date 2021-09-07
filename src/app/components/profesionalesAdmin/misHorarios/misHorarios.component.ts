@@ -56,14 +56,16 @@ export class MisHorariosComponent implements OnInit{
                     horaFin: horario.horaFin,
                     profesionales_id: horario.profesionales_id,
                     fecha: horario.fecha
-    
                 }
-                
+            }).afterClosed().subscribe(()=>{
+                this.profesional = this.profesionalService.profesional;
+                this.getHorariosById(this.profesional.id).subscribe(result=>{
+                    this.horarios = result;
+                });
             })
             console.log(horario);
 
         })
-        
         
     }
     

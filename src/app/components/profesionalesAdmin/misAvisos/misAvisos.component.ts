@@ -76,6 +76,11 @@ export class MisAvisosComponent implements OnInit{
                 }
                 
     
+            }).afterClosed().subscribe(()=>{
+                this.profesional=this.profesionalService.profesional;
+                this.getAvisosByProfesional(this.profesional.id).subscribe(result => {
+                this.avisos = result;
+            });
             })
         })
         
