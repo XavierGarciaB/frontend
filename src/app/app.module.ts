@@ -40,6 +40,7 @@ import { MisHorariosComponent } from './components/profesionalesAdmin/misHorario
 import { MisAvisosComponent } from './components/profesionalesAdmin/misAvisos/misAvisos.component';
 import { MisAvisosDialogComponent} from './components/profesionalesAdmin/misAvisos/misAvisosDialog.component';
 import {MisHorariosDialogComponent} from './components/profesionalesAdmin/misHorarios/misHorariosDialog.component';
+import { ResenaCommentComponent } from './components/resenas/resena-comment/resena-comment.component';
 
 registerLocaleData(localeEs);
 
@@ -63,7 +64,8 @@ registerLocaleData(localeEs);
     MisHorariosComponent,
     MisAvisosComponent,
     MisAvisosDialogComponent,
-    MisHorariosDialogComponent
+    MisHorariosDialogComponent,
+    ResenaCommentComponent
   ],
  
   imports: [
