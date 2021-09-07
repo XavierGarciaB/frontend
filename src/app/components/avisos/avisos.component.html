@@ -12,7 +12,7 @@
 
 
 
-<mat-grid-list cols="3" rowHeight="12em">
+<mat-grid-list cols="3" rowHeight="15em">
     <ng-container>
       <div *ngFor="let aviso of selectedAvisos" class="resenas">
         <mat-grid-tile class="grid-elem">
@@ -20,10 +20,14 @@
           <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
             <mat-card-subtitle class="usuario"><p>Aviso del profesional: {{aviso.nombre}}</p></mat-card-subtitle>
+            
+          </mat-card-header>
+          <mat-card-body>
             <mat-card-subtitle class="profesional"><p>Fecha: </p><p>{{aviso.fechaPublicacion}}</p></mat-card-subtitle>
             <mat-card-subtitle><p>Titulo: {{aviso.titulo}}</p></mat-card-subtitle>
             <mat-card-subtitle><p>Contenido: {{aviso.contenido}} </p></mat-card-subtitle>
-          </mat-card-header>
+
+          </mat-card-body>
         </mat-card>
       </mat-grid-tile>
       </div>

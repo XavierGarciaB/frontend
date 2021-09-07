@@ -5,3 +5,8 @@
 #tarjetas{
     margin: 10px 10px 10px 10px;
 }
+
+.card{
+    width: 350px;
+    height: 250px;
+}
