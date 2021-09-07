@@ -1,0 +1,77 @@
+
+<ng-container *ngIf="id.value==null; else elseChange1">
+    <h2>Creacion de Horario </h2>
+</ng-container>
+<ng-template #elseChange1>
+    <h2>Actualización de Horario</h2>
+</ng-template>
+
+
+<div mat-dialog-content style="width: 500px;">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <mat-form-field style="width: 400px;" >
+            <input placeholder="Ingrese hora de Inicio" autocomplete="off" name="horaInicio" id="horaInicio" type="time" matInput [formControl]="horaInicio" >
+        </mat-form-field>
+        <mat-form-field style="width: 400px;" >
+            <input placeholder="Ingrese hora de Fin" autocomplete="off" name="horaFin" id="horaFin" type="time" matInput [formControl]="horaFin" >
+        </mat-form-field>
+        <mat-form-field style="width: 400px;" >
+            <input placeholder="Ingrese la fecha" autocomplete="off" name="fecha" id="fecha" type="date" matInput [formControl]="fecha" >
+        </mat-form-field>
+
+    </form>
+
+</div>
+
+<div style="justify-content: center;" mat-dialog-actions>
+    <button mat-button (click)="cancelar()" style="background-color: #e42222;">Cancelar</button>
+    <ng-container *ngIf="id.value==null; else elseChange">
+      <button mat-button  (click)="crearHorario()"  cdkFocusInitial style="background-color: #4caf50;">Crear Horario</button>
+    </ng-container>
+    <ng-template #elseChange>
+      <button mat-button  (click)="actualizarHorario()"  cdkFocusInitial style="background-color: #4caf50;">Actualizar Horario</button>
+  
+    </ng-template>
+   
+    
+</div>
+
+<!--
+
+
+
+<div mat-dialog-content style="width: 500px;">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        
+        <mat-form-field style="width: 400px;" >
+            <input placeholder="Ingrese el titulo del aviso" autocomplete="off" name="titulo" id="titulo" type="text" matInput [formControl]="titulo" >
+        </mat-form-field>
+        <br>
+        <br>
+
+        <mat-form-field style="width: 400px;">
+            <input placeholder="Ingrese el contenido del aviso" autocomplete="off" name="contenido" id="contenido" type="text" matInput [formControl]="contenido" >
+        </mat-form-field>
+
+
+
+    </form>
+  
+
+</div>
+
+  
+  
+<div style="justify-content: center;" mat-dialog-actions>
+  <button mat-button (click)="cancelar()" style="background-color: #e42222;">Cancelar</button>
+  <ng-container *ngIf="id.value==null; else elseChange">
+    <button mat-button (click)="crearAviso()"   cdkFocusInitial style="background-color: #4caf50;">Crear Aviso</button>
+  </ng-container>
+  <ng-template #elseChange>
+    <button mat-button (click)="actualizarAviso()"   cdkFocusInitial style="background-color: #4caf50;">Actualizar Aviso</button>
+
+  </ng-template>
+ 
+  
+</div>
+-->

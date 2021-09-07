@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     this.profesionalService.validate(this.id.value, this.nombre.value).subscribe(profesional => {
       if (profesional != null) {
         this.profesionalService.profesional = profesional;
-        this.router.navigate(['/profesionales']);
+        this.router.navigate(['/misHorarios']);
       } else {
         console.log('No existe profesional');
       }

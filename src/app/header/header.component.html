@@ -19,14 +19,26 @@
           <a style="color: white;" class="nav-link element" routerLink="/profesionales">Profesionales
           </a>
         </li>
-        <!-- INSERTAR ETIQUETA PARA PROFESIONAL -->
+        
         <li class="nav-item">
-          <a style="color: white;" class="nav-link element" routerLink="/citas" >Citas</a>
+          <ng-container *ngIf="isProfi(); else elseBlock">
+            <a style="color: white;" class="nav-link element" routerLink="/misHorarios" >Mis Horarios</a>
+          </ng-container>
+          <ng-template  #elseBlock>
+            <a style="color: white;" class="nav-link element" routerLink="/citas" >Citas</a>
+          </ng-template>
+          
         </li>
-        <li class="nav-item">
-          <a style="color: white;" class="nav-link element" routerLink="/avisos">Avisos</a>
+        <li class="nav-item" >
+          <ng-container *ngIf="isProfi(); else elseBlok">
+            <a style="color: white;" class="nav-link element" routerLink="/misAvisos" >Mis Avisos</a>
+          </ng-container>
+          <ng-template #elseBlok>
+            <a style="color: white;" class="nav-link element" routerLink="/avisos">Avisos</a>
+          </ng-template>
+ 
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isProfi()">
           <a style="color: white;" class="nav-link element" routerLink="/resenas">Reseñas</a>
         </li>
         <li class="nav-item">

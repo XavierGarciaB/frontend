@@ -1,8 +1,20 @@
+<div class="search">
+  <mat-label>Profesional: </mat-label>
+  <mat-form-field style="width: 300px;">
+    <mat-select placeholder="Todos" [(ngModel)]="selectedValue" (selectionChange)="search($event.value)">
+      <input matInput placeholder="Buscar">
+      <mat-option *ngFor="let profesional of profesionales" [value]="profesional.id">
+        {{profesional.nombre}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
+
+
 
 
 <mat-grid-list cols="3" rowHeight="12em">
     <ng-container>
-      <div *ngFor="let aviso of avisos" class="resenas">
+      <div *ngFor="let aviso of selectedAvisos" class="resenas">
         <mat-grid-tile class="grid-elem">
         <mat-card class="card">
           <mat-card-header>

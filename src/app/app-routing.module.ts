@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
+import { MisAvisosComponent } from './components/profesionalesAdmin/misAvisos/misAvisos.component';
+import { MisHorariosComponent } from './components/profesionalesAdmin/misHorarios/misHorarios.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,8 @@ const routes: Routes = [
       {path: 'avisos', component: AvisosComponent },
       {path: 'resenas', component: ResenasComponent },
       {path: 'perfil', component: PerfilComponent },
+      {path: 'misHorarios', component: MisHorariosComponent },
+      {path: 'misAvisos', component: MisAvisosComponent },
     ]
   },
   {path: 'auth/login', component: LoginComponent },

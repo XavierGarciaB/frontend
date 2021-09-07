@@ -17,6 +17,14 @@ export class AvisosService {
     return this.httpClient.get<Aviso[]>(`${environment.api_url}/avisos/list`);
   }
 
+  listById(id: number):Observable<Aviso>{
+    return this.httpClient.get<Aviso>(`${environment.api_url}/avisos/get/${id}`);
+  }
+
+  listByProfesionalAvisos(id: number): Observable<Aviso[]> {
+    return this.httpClient.get<Aviso[]>(`${environment.api_url}/avisos/list/${id}`);
+  }
+
   create(aviso: Aviso): Observable<any> {
     return this.httpClient.post<any>(`${environment.api_url}/avisos/create`, aviso);
   }

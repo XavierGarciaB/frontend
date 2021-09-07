@@ -1,0 +1,69 @@
+<div id="boton">
+    <button type="button" (click)="nuevoHorario()" class="btn btn-primary">
+        Crear Horario
+    </button>
+</div>
+
+<mat-grid-list cols="3" rowHeight="19em">
+    
+    <div id="tarjetas" *ngFor="let horario of horarios" class="resenas">
+      <mat-grid-tile class="grid-elem">
+        <ng-contaniner *ngIf="horario.disponible==='1'; else elseSection">
+
+          
+          <div class="card"  style="width: 18rem;">
+              <div class="card">
+                  <!--<h5 class="card-title"> {{horario.horaInicio}} </h5>
+                  <h6 class="card-subtitle mb-2 text-muted" > {{horario.horaFin}} </h6>
+                  
+                    <p class="card-text"> {{aviso.contenido}} </p>
+
+                  
+                  
+                  <button style="margin: 5px;" type="button"  class="btn btn-primary" >Actualizar</button>
+                  <button style="margin: 5px;" type="button"  class="btn btn-danger">Eliminar</button>
+                  -->
+
+                <div class="card border-success disponible" style="width: 100%;">
+                    <div class="card-header">Disponible</div>
+                    <div class="card-body text-success">
+                    <h5 class="card-title">{{ horario.fecha }}</h5>
+                    <p class="card-text">Hora Inicio: {{ horario.horaInicio }}</p>
+                    <p class="card-text">Hora Fin: {{ horario.horaFin }}</p>
+                    </div>
+                    <button style="margin: 5px;" type="button" (click)="horarioInfo(horario.id)"  class="btn btn-primary" >Actualizar</button>
+                    <button style="margin: 5px;" type="button" (click)="eliminarHorario(horario.id)" class="btn btn-danger">Eliminar</button>
+                </div>
+                  
+    
+              </div>
+  
+            </div>
+
+        </ng-contaniner>
+        <ng-template #elseSection>
+            <div class="card">
+                <div class="card border-danger " style="width: 100%;">
+                    <div class="card-header">Ocupado</div>
+                    <div class="card-body text-danger">
+                      <h5 class="card-title">{{ horario.fecha }}</h5>
+                      <p class="card-text">Hora Inicio: {{ horario.horaInicio }}</p>
+                      <p class="card-text">Hora Fin: {{ horario.horaFin }}</p>
+                    </div>
+                  </div>
+
+            </div>
+
+        </ng-template>
+
+
+
+
+
+
+
+      </mat-grid-tile>
+
+    
+    </div>
+</mat-grid-list>

@@ -1,8 +1,13 @@
+import { Profesional } from "./profesional";
+
 export interface Aviso {
     id?: number;
     fechaPublicacion: string;
     contenido: string;
     titulo: string;
-    profesionalName: string;
+    profesionales_id:number;
+    profesional?: Profesional
+
+    //profesionalName: string;
   
   }

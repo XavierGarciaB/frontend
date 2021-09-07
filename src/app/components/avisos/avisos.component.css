@@ -22,3 +22,6 @@
   .profesional p:first-child{
     font-weight: bold;
   }
+  mat-label{
+    margin: 3em;
+  }

@@ -36,6 +36,10 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { NZ_I18N, es_ES} from 'ng-zorro-antd/i18n';
 import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
+import { MisHorariosComponent } from './components/profesionalesAdmin/misHorarios/misHorarios.component';
+import { MisAvisosComponent } from './components/profesionalesAdmin/misAvisos/misAvisos.component';
+import { MisAvisosDialogComponent} from './components/profesionalesAdmin/misAvisos/misAvisosDialog.component';
+import {MisHorariosDialogComponent} from './components/profesionalesAdmin/misHorarios/misHorariosDialog.component';
 
 registerLocaleData(localeEs);
 
@@ -55,7 +59,11 @@ registerLocaleData(localeEs);
     RegisterComponent,
     PerfilComponent,
     CalendarComponent,
-    AppLayoutComponent
+    AppLayoutComponent,
+    MisHorariosComponent,
+    MisAvisosComponent,
+    MisAvisosDialogComponent,
+    MisHorariosDialogComponent
   ],
  
   imports: [

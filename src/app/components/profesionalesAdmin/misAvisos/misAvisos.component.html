@@ -1,0 +1,31 @@
+<div id="boton">
+    <button type="button" class="btn btn-primary" (click)="nuevoAviso()">
+        Crear Aviso
+    </button>
+</div>
+
+
+
+<mat-grid-list cols="3" rowHeight="15em">
+    
+
+        
+   
+      <div id="tarjetas" *ngFor="let aviso of avisos" class="resenas">
+        <mat-grid-tile class="grid-elem">
+            <div class="card"  style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"> {{aviso.titulo}} </h5>
+                    <h6 class="card-subtitle mb-2 text-muted" > {{aviso.fechaPublicacion}} </h6>
+                    <p class="card-text"> {{aviso.contenido}} </p>
+                    <button style="margin: 5px;" type="button" (click)="avisoInfo(aviso.id)" class="btn btn-primary" >Actualizar</button>
+                    <button style="margin: 5px;" type="button" (click)="eliminarAviso(aviso.id)" class="btn btn-danger">Eliminar</button>
+      
+                </div>
+    
+              </div>
+        </mat-grid-tile>
+
+           
+      </div>
+</mat-grid-list>
