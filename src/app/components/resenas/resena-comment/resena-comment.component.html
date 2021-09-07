@@ -1,0 +1,13 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Reseña</label>
+        <textarea [formControl]="mensaje" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="col-md-12" align="center">
+      <button type="button" class="btn btn-primary" (click)="saveResena()">Guardar</button>
+    </div>
+  </div>
+</div>

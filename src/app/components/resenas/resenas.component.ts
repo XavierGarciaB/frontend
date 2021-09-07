@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ResenasDialogComponent } from './resenasDialog.component';
 import { ProfesionalService } from 'src/app/services/profesional/profesional.service';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
-import { Profesional } from 'src/app/interfaces/profesional';
+import { ResenaCommentComponent } from './resena-comment/resena-comment.component';
 
 @Component({
     selector: 'app-resenas',
@@ -89,6 +89,9 @@ export class ResenasComponent implements OnInit{
   }
 
   search(idProfesional){
+    if (idProfesional === 0) {
+      this.selectedValue = undefined;
+    }
     this.selectedResenas = []
     if(idProfesional!=0){
       for(let resena of this.resenas){
@@ -109,13 +112,39 @@ export class ResenasComponent implements OnInit{
         this.setResenaUsuario(element)
       });
       this.selectedResenas =this.resenas
-    })
-    
+    });
   }
 
+  async createResena(): Promise<void> {
+    const date = new Date();
+    const mensaje = await this.writeResena();
+    const resena: Resena = {
+      comentario: mensaje,
+      fechaPublicacion: new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().slice(0, 19).replace('T', ' '),
+      profesionales_id: this.selectedValue,
+      usuarios_id: this.usuariosService.usuario.id.toString()
+    };
+    this.resenasService.create(resena).subscribe(response => {
+      this.resenasService.listByProfesional(parseInt(this.selectedValue)).subscribe(resenas => {
+        resenas.forEach(element => {
+          this.setResenaProfesional(element)
+          this.setResenaUsuario(element)
+        });
+        this.selectedResenas = resenas;
+      });
+    });
+  }
 
-
-    
-
+  writeResena(): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      this.dialog.open(ResenaCommentComponent, {
+        width: '700px',
+        height: '300px',
+        panelClass: 'my-dialog',
+      }).afterClosed().subscribe(mensaje => {
+        resolve(mensaje);
+      });
+    });
+  }
     
 }

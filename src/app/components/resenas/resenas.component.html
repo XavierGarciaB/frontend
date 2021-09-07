@@ -1,14 +1,15 @@
 
-  <div class="search">
-      <mat-label>Profesional: </mat-label>
-      <mat-form-field style="width: 300px;">
-        <mat-select placeholder="Todos" [(ngModel)]="selectedValue" (selectionChange)="search($event.value)">
-          <input matInput placeholder="Buscar">
-          <mat-option *ngFor="let profesional of profesionales" [value]="profesional.id">
-            {{profesional.nombre}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-    </div>
+<div class="search mt-3">
+  <mat-label>Profesional: </mat-label>
+  <mat-form-field style="width: 300px;">
+    <mat-select placeholder="Todos" [(ngModel)]="selectedValue" (selectionChange)="search($event.value)">
+      <input matInput placeholder="Buscar">
+      <mat-option *ngFor="let profesional of profesionales" [value]="profesional.id">
+        {{profesional.nombre}}</mat-option>
+      </mat-select>
+  </mat-form-field>
+  <button *ngIf="selectedValue !== undefined" type="button" class="btn btn-primary ml-3" (click)="createResena()">Nueva Reseña</button>
+</div>
 
 
 

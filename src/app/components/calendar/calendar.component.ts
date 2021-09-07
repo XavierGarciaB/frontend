@@ -1,6 +1,7 @@
 import { CalendarView, CalendarEvent } from 'angular-calendar';
 import Swal from 'sweetalert2';
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HorariosService } from 'src/app/services/horarios/horarios.service';
 import { CitasService } from 'src/app/services/citas/cita.service';
@@ -37,6 +38,7 @@ export class CalendarComponent{
     constructor(
         private horariosService: HorariosService,
         private citasService: CitasService,
+        private router: Router,
         
     ){}
 
@@ -78,7 +80,7 @@ export class CalendarComponent{
             Swal.fire({
                 title: '<strong><p>'+contenido[0]+'</p></strong>',
                 html:
-                  '<p>Cita '+this.getEstado(event.color.primary)+'</p>',
+                  '<p>Cita'+this.getEstado(event.color.primary)+'</p>',
                 showDenyButton: false,
                 showConfirmButton: false,
                 showCloseButton: true,
@@ -95,13 +97,13 @@ export class CalendarComponent{
                     'success'
                   ).then((result)=>{
                     event.color = colors.red
-                    this.updateStateHorario(event,event.id)
+                    this.updateStateHorario(event.id)
                   })
             })
         }
     }
 
-    updateStateHorario(event,citaId){
+    updateStateHorario(citaId){
       this.citasService.getCitaById(citaId).subscribe((cita)=>{
         let horario: Horario
         this.horariosService.get(parseInt(cita.horarios_id)).subscribe(elem=>{
@@ -121,9 +123,8 @@ export class CalendarComponent{
         }
     }
 
-    refreshEvents(){
-        window.location.reload()
-    }
+
+
 
     
 }
