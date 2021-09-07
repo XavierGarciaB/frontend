@@ -31,9 +31,9 @@ export class MisAvisosComponent implements OnInit{
     ngOnInit(){
         this.profesional=this.profesionalService.profesional;
         console.log(this.profesional.id);
-       this.getAvisosByProfesional(this.profesional.id).subscribe(result=>{
+        this.getAvisosByProfesional(this.profesional.id).subscribe(result=>{
             this.avisos = result;
-          })
+        });
 
         console.log(this.avisos[0]);
 
@@ -48,7 +48,12 @@ export class MisAvisosComponent implements OnInit{
         this.accion=true;
         const dialogRef=this.dialog.open(MisAvisosDialogComponent,{
             
-        })
+        }).afterClosed().subscribe(() => {
+            this.profesional=this.profesionalService.profesional;
+            this.getAvisosByProfesional(this.profesional.id).subscribe(result => {
+                this.avisos = result;
+            });
+        });
     }
 
     getAvisoById(id: number){
@@ -79,6 +84,10 @@ export class MisAvisosComponent implements OnInit{
     eliminarAviso(id: number): void{
         this.avisosService.delete(id).subscribe(result=>{
             console.log(result);
+            this.profesional=this.profesionalService.profesional;
+            this.getAvisosByProfesional(this.profesional.id).subscribe(result => {
+                this.avisos = result;
+            });
         })
     }
 

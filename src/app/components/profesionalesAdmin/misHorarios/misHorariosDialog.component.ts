@@ -63,7 +63,7 @@ export class MisHorariosDialogComponent implements OnInit{
 
     crearHorario():void{
         const horario: Horario={
-            disponible: false,
+            disponible: true,
             fecha: this.fecha.value,
             horaInicio: this.horaInicio.value,
             horaFin: this.horaFin.value,

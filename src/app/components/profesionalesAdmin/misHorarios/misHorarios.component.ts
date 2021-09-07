@@ -29,14 +29,18 @@ export class MisHorariosComponent implements OnInit{
         this.profesional=this.profesionalService.profesional;
         this.getHorariosById(this.profesional.id).subscribe(result=>{
             this.horarios=result;
-        })
+        });
 
     }
 
     nuevoHorario(){
-        const dialogRef=this.dialog.open(MisHorariosDialogComponent,{
-
-        })
+        const dialogRef = this.dialog.open(MisHorariosDialogComponent,{
+        }).afterClosed().subscribe(() => {
+            this.profesional = this.profesionalService.profesional;
+            this.getHorariosById(this.profesional.id).subscribe(result=>{
+                this.horarios = result;
+            });
+        });
     }
 
     horarioInfo(id: number): void{
@@ -76,6 +80,10 @@ export class MisHorariosComponent implements OnInit{
     eliminarHorario(id: number): void{
         this.horariosServices.delete(id).subscribe(result=>{
             console.log(result);
-        })
-    }S
+            this.profesional = this.profesionalService.profesional;
+            this.getHorariosById(this.profesional.id).subscribe(result=>{
+                this.horarios = result;
+            });
+        });
+    }
 }
