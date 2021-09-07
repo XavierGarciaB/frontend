@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Horario } from 'src/app/interfaces/horario';
 import { Profesional } from 'src/app/interfaces/profesional';
 import { HorariosService } from 'src/app/services/horarios/horarios.service';
@@ -54,8 +54,10 @@ export class ProfesionalesComponent implements OnInit {
       denyButtonText: `No`,
       confirmButtonText: `Sí`
     }).then((result) => {
-      this.crearCita(this.userId,horario,profesional)
-    })
+      if (result.isConfirmed) {
+        this.crearCita(this.userId,horario,profesional);
+      }
+    });
   }
 
   crearCita(userId,horario:Horario,profesional:Profesional){
